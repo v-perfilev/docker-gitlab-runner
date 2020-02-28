@@ -1,0 +1,29 @@
+######################
+# Intellij
+######################
+.idea
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+classes/
+out/
+
+######################
+# Windows
+######################
+Thumbs.db
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+._*
+.Spotlight-V100
+.Trashes
+
+
