@@ -9,7 +9,7 @@ ENV GITLAB_CI_DESCRIPTION="Dockerized GitLab Runner" \
 
 # common setup
 RUN apt-get update && \
-    apt-get install -y software-properties-common curl
+    apt-get install -y curl
 
 # install gitlab runner
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash && \

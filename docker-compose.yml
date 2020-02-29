@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+
+  gitlab-runner:
+    image: persoff68/gitlab-runner
+    restart: always
+    volumes:
+      - ~/gitlab-runner/config:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      GITLAB_CI_TOKEN: token
