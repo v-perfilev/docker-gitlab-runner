@@ -10,7 +10,7 @@ Build:
 docker build -t persoff68/gitlab-runner .
 ```
 
-Run (don't forget to use your own url and token):  
+Run (don't forget to use your own url (optional) and token):  
 ```
 docker run -d --name gitlab-runner --restart always \
   --env GITLAB_URL_TOKEN=url \
@@ -18,7 +18,7 @@ docker run -d --name gitlab-runner --restart always \
   persoff68/gitlab-runner
 ```
 
-Run with docker compose (don't forget to use your own url and token):
+Run with docker compose (don't forget to use your own url (optional) and token):
 ```
 docker-compose up -d
 ```

@@ -2,12 +2,6 @@
 set -e
 
 # chek if token env exists
-if [ -z "$GITLAB_CI_URL" ]; then
-  echo "GitLab URL is not set!"
-  exit 1
-fi
-
-# chek if token env exists
 if [ -z "$GITLAB_CI_TOKEN" ]; then
   echo "GitLab TOKEN is not set!"
   exit 1
@@ -16,6 +10,7 @@ fi
 # regsiter GitLab runner if not exists
 if [ ! -f /etc/gitlab-runner/config.toml ]; then
 
+  echo "Registering runner..."
   /usr/bin/gitlab-ci-multi-runner register \
     --non-interactive \
     --url "$GITLAB_CI_URL" \
@@ -31,4 +26,5 @@ if [ ! -f /etc/gitlab-runner/config.toml ]; then
 fi
 
 # start GitLab runner
+echo "Starting runner..."
 /usr/bin/gitlab-ci-multi-runner run

@@ -4,7 +4,8 @@ FROM ubuntu:18.04
 ENV GITLAB_CI_DESCRIPTION="Dockerized GitLab Runner" \
     GITLAB_CI_TAGS="docker,alpine" \
     GITLAB_CI_EXECUTOR="docker" \
-    GITLAB_CI_DEFAULT_IMAGE="alpine:latest"
+    GITLAB_CI_DEFAULT_IMAGE="alpine:latest" \
+    GITLAB_CI_URL="https://gitlab.com/"
 
 # common setup
 RUN apt-get update && \
@@ -15,6 +16,7 @@ RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runne
     apt-get install -y gitlab-runner
 
 # config and entrypoint
+RUN rm /etc/gitlab-runner/config.toml
 COPY config/entrypoint.sh /usr/sbin/
 RUN chmod +x /usr/sbin/entrypoint.sh
 
