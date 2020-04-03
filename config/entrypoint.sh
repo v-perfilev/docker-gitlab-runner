@@ -2,6 +2,12 @@
 set -e
 
 # chek if token env exists
+if [ -z "$GITLAB_CI_URL" ]; then
+  echo "GitLab URL is not set!"
+  exit 1
+fi
+
+# chek if token env exists
 if [ -z "$GITLAB_CI_TOKEN" ]; then
   echo "GitLab TOKEN is not set!"
   exit 1
