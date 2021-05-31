@@ -21,7 +21,8 @@ if [ ! -f /etc/gitlab-runner/config.toml ]; then
     --tag-list "$GITLAB_CI_TAGS" \
     --run-untagged="true" \
     --locked="false" \
-    --access-level="not_protected"
+    --access-level="not_protected" \
+    --docker-privileged
 
 fi
 
