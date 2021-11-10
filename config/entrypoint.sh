@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 
-# chek if token env exists
+# check if token env exists
 if [ -z "$GITLAB_CI_TOKEN" ]; then
   echo "GitLab TOKEN is not set!"
   exit 1
 fi
 
-# regsiter GitLab runner if not exists
+# register GitLab runner if not exists
 if [ ! -f /etc/gitlab-runner/config.toml ]; then
 
   echo "Registering runner..."
