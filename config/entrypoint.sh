@@ -7,6 +7,16 @@ if [ -z "$GITLAB_CI_TOKEN" ]; then
   exit 1
 fi
 
+# write daemon.json with mirror url
+if [ ! -f /tmp/daemon.json ]; then
+
+  touch /tmp/daemon.json
+  echo "{" >> /tmp/daemon.json
+  echo "  \"registry-mirrors\": \"$GITLAB_CI_MIRROR\"" >> /tmp/daemon.json
+  echo "}" >> /tmp/daemon.json
+
+fi
+
 # register GitLab runner if not exists
 if [ ! -f /etc/gitlab-runner/config.toml ]; then
 
@@ -22,7 +32,10 @@ if [ ! -f /etc/gitlab-runner/config.toml ]; then
     --run-untagged="true" \
     --locked="false" \
     --access-level="not_protected" \
-    --docker-privileged
+    --docker-privileged \
+    --docker-volumes "/cache" \
+    --docker-volumes "/tmp/daemon.json:/etc/docker/daemon.json" \
+    --docker-pull-policy "if-not-present"
 
 fi
 

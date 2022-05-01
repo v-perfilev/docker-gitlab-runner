@@ -5,7 +5,8 @@ ENV GITLAB_CI_DESCRIPTION="Dockerized GitLab Runner" \
     GITLAB_CI_TAGS="docker,alpine" \
     GITLAB_CI_EXECUTOR="docker" \
     GITLAB_CI_DEFAULT_IMAGE="alpine:latest" \
-    GITLAB_CI_URL="https://gitlab.com/"
+    GITLAB_CI_URL="https://gitlab.com/" \
+    GITLAB_CI_MIRROR="https://registry-1.docker.io"
 
 # common setup
 RUN apt-get update && \

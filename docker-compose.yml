@@ -11,3 +11,4 @@ services:
     environment:
       GITLAB_CI_URL: url
       GITLAB_CI_TOKEN: token
+      GITLAB_CI_MIRROR: mirror_url
