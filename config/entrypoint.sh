@@ -32,10 +32,11 @@ if [ ! -f /etc/gitlab-runner/config.toml ]; then
     --run-untagged="true" \
     --locked="false" \
     --access-level="not_protected" \
-    --docker-privileged \
     --docker-volumes "/cache" \
+    --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
     --docker-volumes "/tmp/daemon.json:/etc/docker/daemon.json" \
-    --docker-pull-policy "if-not-present"
+    --docker-pull-policy "if-not-present" \
+    --docker-privileged
 
 fi
 
